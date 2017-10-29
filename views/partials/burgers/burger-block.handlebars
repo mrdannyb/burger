@@ -1,0 +1,11 @@
+<div class="box">
+	<h4>{{burger_name}}</h4>
+
+  {{#unless devoured}}
+  	<button class="change-devoured" data-id="{{id}}">
+  		Devour!
+  	</button>
+  {{/unless}}
+
+	<button class="delete-burger" data-id="{{this.id}}">I've changed my mind</button>
+</div>

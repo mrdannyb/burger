@@ -9,14 +9,14 @@ var orm = {
     })
   },
   updateOne: function (id, cb) {
-    var queryString = "UPDATE burgers SET devoured = TRUE WHERE id = ?";
+    var queryString = "UPDATE burgers SET devoured = 1 WHERE id = ?";
     connection.query(queryString, [id], function (err, records) {
       if (err) throw err;
       cb(records);
     })
   },
   insertOne: function (burgName, cb) {
-    var queryString = "INSERT INTO burgers (burger_name, devoured) VALUES (?,TRUE)";
+    var queryString = "INSERT INTO burgers (burger_name) VALUES (?)";
     connection.query(queryString, [burgName],function (err,records) {
       if (err) throw err;
       cb(records);

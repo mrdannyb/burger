@@ -10,25 +10,41 @@
     </div>
   </div>
 </section>
+<br>
 <section>
-  <div class="field has-addons">
-    <p class="control">
-      <input class="input" id="burger-in" type="text" placeholder="What Burger do you want?">
-    </p>
-    <p class="control">
-      <button id="burg-sub" class="button">
-            Submit
-      </button>
-    </p>
+  <div class="container">
+    <form id="post-burger">
+      <div class="field has-addons">
+        <label for="burger-in">What's on the future menu?</label>
+        <div class="control">
+          <input class="input" id="burger-in" name="burger-in" type="text" placeholder="What Burger do you want?">
+        </div>
+        <div class="control">
+          <button id="burg-sub" class="button is-primary" type="submit">
+                Submit
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 <section>
   <div class="columns">
     <div class="column" id="uneaten">
-
+      <h2 >Burgers to eat</h2>
+      {{#each burger}}
+        {{#unless devoured}}
+          {{> burgers/burger-block devoured=0}}
+        {{/unless}}
+      {{/each}}
     </div>
     <div class="column" id="eaten">
-
+      <h2>Burgers of the past</h2>
+      {{#each burger}}
+        {{#if devoured}}
+          {{> burgers/burger-block devoured=1}}
+        {{/if}}
+      {{/each}}
     </div>
   </div>
 </section>
